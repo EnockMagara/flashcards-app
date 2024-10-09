@@ -1,0 +1,354 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.App {
+  text-align: center;
+  background-color: #282c34; /* Darker background color */
+  color: #61dafb; /* Brighter text color */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.start-screen, .quiz-screen, .finish-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #20232a; /* Card background color */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.flashcard-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  margin-bottom: 20px;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+}
+
+.flashcard {
+  width: 300px; /* Default size */
+  height: 200px; /* Default size */
+  border: 2px solid #61dafb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s;
+  font-family: 'Courier New', monospace; /* Font family */
+  background-color: #20232a; /* Background color */
+  color: #61dafb; /* Text color */
+  animation: fadeIn 0.5s; /* Animation */
+  margin-bottom: 20px;
+}
+
+.flashcard:hover {
+  transform: scale(1.05);
+}
+
+.flashcard.flipped .flashcard-content {
+  animation: slideIn 0.5s; /* Animation for flipping */
+}
+
+.flashcard-content {
+  font-size: 1.5rem; /* Font size */
+}
+
+.flashcard-content p:first-child {
+  font-size: 1rem; /* Smaller font size for card number */
+  margin-bottom: 10px; /* Margin below card number */
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: #61dafb;
+  color: #fff; /* Button text color */
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #21a1f1;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .App {
+    padding: 20px;
+  }
+
+  button {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+
+  .flashcard {
+    width: 250px; /* Smaller size for tablets */
+    height: 150px; /* Smaller size for tablets */
+  }
+
+  .flashcard-content {
+    font-size: 1.2rem; /* Smaller font size for tablets */
+  }
+
+  .flashcard-content p:first-child {
+    font-size: 0.9rem; /* Smaller font size for card number on tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .App {
+    padding: 10px;
+  }
+
+  button {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+
+  .flashcard {
+    width: 200px; /* Smaller size for mobile */
+    height: 120px; /* Smaller size for mobile */
+  }
+
+  .flashcard-content {
+    font-size: 1rem; /* Smaller font size for mobile */
+  }
+
+  .flashcard-content p:first-child {
+    font-size: 0.8rem; /* Smaller font size for card number on mobile */
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* General Styles */
+body {
+  background-color: #1e1e2f; /* Dark background for contrast */
+  color: #e0e0e0; /* Light text color for readability */
+  font-family: 'Roboto', sans-serif; /* Clean, modern font */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Flashcard Styles */
+.flashcard {
+  perspective: 1000px; /* Perspective for 3D effect */
+  background: linear-gradient(135deg, #2a2a3b, #363649); /* Subtle gradient background */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+  width: 300px; /* Increased size for better readability */
+  height: 200px; /* Increased size for better readability */
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.6s; /* Smooth transition for flip */
+  border: 2px solid #444; /* Border for visual separation */
+}
+
+.flashcard-flip-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flashcard.flipped .flashcard-flip-container {
+  transform: rotateY(180deg); /* Rotate the flip container */
+}
+
+.flashcard-front,
+.flashcard-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Hide the backface */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.flashcard-back {
+  transform: rotateY(180deg); /* Position the back face */
+}
+
+.flashcard-content {
+  font-size: 1.5rem; /* Increased font size for better readability */
+  line-height: 1.6; /* Improved line height for better spacing */
+}
+
+.flashcard-content p:first-child {
+  font-size: 1.2rem; /* Slightly larger font size for card number */
+  margin-bottom: 20px; /* Increased margin below card number */
+}
+
+p {
+  margin: 15px 0; /* Increased margin for better spacing */
+}
+
+/* Input and Button Styles */
+input[type="text"] {
+  width: 80%;
+  padding: 12px; /* Increased padding for better touch targets */
+  margin-top: 20px; /* Increased margin for better separation */
+  border: 2px solid #444;
+  border-radius: 5px;
+  background-color: #1e1e2f;
+  color: #e0e0e0;
+  font-size: 1rem; /* Adjusted font size for input */
+}
+
+button {
+  background-color: #444;
+  color: #e0e0e0;
+  border: none;
+  border-radius: 5px;
+  padding: 12px 24px; /* Increased padding for better touch targets */
+  margin: 15px 5px; /* Adjusted margin for better spacing */
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 1rem; /* Adjusted font size for buttons */
+}
+
+button:hover {
+  background-color: #555;
+}
+
+/* Button Group Styles */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Start and Finish Screen Styles */
+.start-screen, .finish-screen {
+  text-align: center;
+  animation: fadeIn 0.5s ease-in; /* Fade-in animation */
+}
+
+.start-screen h1, .finish-screen h1 {
+  font-size: 2.5em; /* Increased font size for headings */
+  margin-bottom: 30px; /* Increased margin for better separation */
+}
+
+.start-screen button, .finish-screen button {
+  font-size: 1.2em; /* Increased font size for start/finish buttons */
+  padding: 15px 30px; /* Increased padding for better touch targets */
+  animation: pulse 1s infinite; /* Pulsing animation */
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 480px) {
+  .flashcard {
+    width: 250px; /* Adjusted size for smaller screens */
+    height: 150px; /* Adjusted size for smaller screens */
+  }
+
+  .flashcard-content {
+    font-size: 1.2rem; /* Adjusted font size for smaller screens */
+  }
+
+  .flashcard-content p:first-child {
+    font-size: 1rem; /* Adjusted font size for card number on smaller screens */
+    margin-bottom: 15px; /* Adjusted margin for smaller screens */
+  }
+
+  input[type="text"] {
+    font-size: 0.9rem; /* Adjusted font size for input on smaller screens */
+  }
+
+  button {
+    font-size: 0.9rem; /* Adjusted font size for buttons on smaller screens */
+    padding: 10px 20px; /* Adjusted padding for smaller screens */
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
