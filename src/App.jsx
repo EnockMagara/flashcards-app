@@ -20,6 +20,7 @@ function App() {
     { question: 'What is the largest living species of lizard?', answer: 'Komodo dragon' },
     { question: 'What is the deepest part of the ocean?', answer: 'Challenger Deep' },
     { question: 'What is the highest recorded temperature on Earth?', answer: '134°F' },
+    { question: 'What is the speed of light?', answer: '299,792,458 meters per second' }, // Added new question
   ]);
 
   // State to track the current flashcard index
