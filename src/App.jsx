@@ -21,6 +21,7 @@ function App() {
     { question: 'What is the deepest part of the ocean?', answer: 'Challenger Deep' },
     { question: 'What is the highest recorded temperature on Earth?', answer: '134°F' },
     { question: 'What is the speed of light?', answer: '299,792,458 meters per second' }, // Added new question
+    { question: 'What is the powerhouse of the cell?', answer: 'Mitochondria' }, // Added another new question
   ]);
 
   // State to track the current flashcard index
